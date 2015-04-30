@@ -4,8 +4,65 @@
         "uninstalled": []
     },
     "config_munge": {
-        "files": {}
+        "files": {
+            "AndroidManifest.xml": {
+                "parents": {
+                    "/manifest/application": [
+                        {
+                            "xml": "<meta-data android:name=\"com.google.android.gms.version\" android:value=\"@integer/google_play_services_version\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<meta-data android:name=\"com.google.android.gms.games.APP_ID\" android:value=\"@string/app_id\" />",
+                            "count": 1
+                        }
+                    ],
+                    "/manifest": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "res/xml/config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"GooglePlayGame\"><param name=\"android-package\" value=\"com.a42.cordova.plugins.GooglePlayGame\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "res/values/strings.xml": {
+                "parents": {
+                    "/resources": [
+                        {
+                            "xml": "<string name=\"app_id\">8510648668</string>",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
     },
-    "installed_plugins": {},
-    "dependent_plugins": {}
+    "installed_plugins": {
+        "com.a42.cordova.googleplaygame": {
+            "APP_ID": "8510648668",
+            "PACKAGE_NAME": "puka.crazy.math"
+        }
+    },
+    "dependent_plugins": {
+        "com.google.playservices": {
+            "PACKAGE_NAME": "puka.crazy.math"
+        },
+        "android.support.v4": {
+            "PACKAGE_NAME": "puka.crazy.math"
+        }
+    }
 }
