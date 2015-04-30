@@ -6,6 +6,7 @@ var numberRand1 = 10, numberRand2 = 10;
 var startTime;
 var self;
 var hasAnswer = true;
+var playerData = {};
 var mymath = {
 	// Application Constructor
     initialize: function() {
@@ -126,6 +127,7 @@ var mymath = {
 		}
 		hasAnswer = true;
 		score = 0;
+        submitScore();
     },
     showProgress: function() {
     	$('#my-progress-bar').html('');
@@ -144,14 +146,36 @@ var mymath = {
     }
 };
 var successfullyLoggedIn = function () {
-    googleplaygame.showPlayer(function (playerData) {
-            alert(playerData);
-        });
-    googleplaygame.showAllLeaderboards();
+    googleplaygame.showPlayer(function (_playerData) {
+        document.querySelector("#image").src = _playerData.iconImageUrl;
+        document.querySelector("#image").style.visibility = 'visible';
+        document.querySelector("#feedback").innerHTML = "Hi, " + _playerData.displayName;
+        playerData = _playerData;
+    });
 };
 var failedToLogin = function () {
     console.log('failedToLogin');
-    googleplaygame.signOut();
+    // googleplaygame.signOut();
+};
+
+var doLoginGPlus = function() {
+    googleplaygame.isSignedIn(function (result) {
+        if (result.isSignedIn) {
+            successfullyLoggedIn();
+        } else {
+            googleplaygame.auth(successfullyLoggedIn);
+        }
+    });
+};
+var submitScore = function() {
+    googleplaygame.auth(function () {
+        var highScore = localStorage.getItem("highScore") ? localStorage.getItem("highScore") : 0;
+        var data = {
+            score: highScore,
+            leaderboardId: 'CggI3OKY2h8QAhAC'
+        };
+        googleplaygame.submitScore(data);
+    }, failedToLogin);
 };
 
 $(function () {
@@ -181,8 +205,10 @@ $(function () {
       $(this).hide();
     });
     $('.leaderboard-game').click(function(e) {
+        // googleplaygame.showAllLeaderboards();
 
-        googleplaygame.auth(successfullyLoggedIn, failedToLogin);
-        
+        googleplaygame.showLeaderboard({
+            leaderboardId: 'CggI3OKY2h8QAhAC'
+        });
     });
 });

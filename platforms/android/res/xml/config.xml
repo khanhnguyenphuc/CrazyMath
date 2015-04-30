@@ -1,6 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="puka.crazy.math" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <preference name="loglevel" value="DEBUG" />
+    <feature name="GooglePlayGame">
+        <param name="android-package" value="com.a42.cordova.plugins.GooglePlayGame" />
+    </feature>
     <name>CrazyMath</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
@@ -10,7 +13,4 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-    <feature name="GooglePlayGame">
-        <param name="android-package" value="com.a42.cordova.plugins.GooglePlayGame" />
-    </feature>
 </widget>
