@@ -44,13 +44,14 @@ body {
 	height: 20px;
 	width: 200px;
 }
-.rate-game button {
+/*.rate-game button {
 	margin: 35px 15px;
-}
+}*/
 .accept, .deny {
 	width: 100px;
 	height: 100px;
 }
 .navigation .btn {
 	margin: 15px;
+	margin-bottom: 0;
 }

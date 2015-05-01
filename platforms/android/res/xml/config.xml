@@ -4,7 +4,7 @@
     <feature name="GooglePlayGame">
         <param name="android-package" value="com.a42.cordova.plugins.GooglePlayGame" />
     </feature>
-    <name>CrazyMath</name>
+    <name>Crazy Math</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
     </description>

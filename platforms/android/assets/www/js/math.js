@@ -152,6 +152,8 @@ var successfullyLoggedIn = function () {
         document.querySelector("#feedback").innerHTML = "Hi, " + _playerData.displayName;
         playerData = _playerData;
     });
+    $('.btnLogin').hide();
+    $('.btnLogout').show();
 };
 var failedToLogin = function () {
     console.log('failedToLogin');
@@ -172,7 +174,7 @@ var submitScore = function() {
         var highScore = localStorage.getItem("highScore") ? localStorage.getItem("highScore") : 0;
         var data = {
             score: highScore,
-            leaderboardId: playerData.playerId
+            leaderboardId: 'CggI3OKY2h8QAhAC'
         };
         googleplaygame.submitScore(data);
     }, failedToLogin);
@@ -196,19 +198,22 @@ $(function () {
 	$('.deny').click(function(e) {
 		mymath.confirmCalculator(false)
 	});
-    $('.btnLogin').click(function(e) {
-      login();
-    });
-    $('.btnLogout').click(function(e) {
-      disconnect();
-      $('.btnLogin').show();
-      $(this).hide();
-    });
+    // $('.btnLogin').click(function(e) {
+    //   doLoginGPlus();
+    // });
+    // $('.btnLogout').click(function(e) {
+    //     googleplaygame.signOut();
+    //     $('.btnLogin').show();
+    //     $(this).hide();
+    //     document.querySelector("#image").style.visibility = 'hidden';
+    //     document.querySelector("#feedback").innerHTML = '';
+    // });
     $('.leaderboard-game').click(function(e) {
-        // googleplaygame.showAllLeaderboards();
-
         googleplaygame.showLeaderboard({
             leaderboardId: 'CggI3OKY2h8QAhAC'
         });
+    });
+    $('.achievement-game').click(function(e) {
+        googleplaygame.showAchievements();
     });
 });
