@@ -26,6 +26,12 @@
                             "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
                             "count": 1
                         }
+                    ],
+                    "/*": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
+                            "count": 2
+                        }
                     ]
                 }
             },
@@ -34,6 +40,14 @@
                     "/*": [
                         {
                             "xml": "<feature name=\"GooglePlayGame\"><param name=\"android-package\" value=\"com.a42.cordova.plugins.GooglePlayGame\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SocialSharing\"><param name=\"android-package\" value=\"nl.xservices.plugins.SocialSharing\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Screenshot\"><param name=\"android-package\" value=\"com.darktalker.cordova.screenshot.Screenshot\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -54,6 +68,12 @@
     "installed_plugins": {
         "com.a42.cordova.googleplaygame": {
             "APP_ID": "8510648668",
+            "PACKAGE_NAME": "puka.crazy.math"
+        },
+        "nl.x-services.plugins.socialsharing": {
+            "PACKAGE_NAME": "puka.crazy.math"
+        },
+        "com.darktalker.cordova.screenshot": {
             "PACKAGE_NAME": "puka.crazy.math"
         }
     },

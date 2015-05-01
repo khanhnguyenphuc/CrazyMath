@@ -17,5 +17,18 @@
             "type": "registry",
             "id": "android.support.v4"
         }
+    },
+    "nl.x-services.plugins.socialsharing": {
+        "source": {
+            "type": "registry",
+            "id": "nl.x-services.plugins.socialsharing"
+        }
+    },
+    "com.darktalker.cordova.screenshot": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/gitawego/cordova-screenshot.git",
+            "subdir": "."
+        }
     }
 }

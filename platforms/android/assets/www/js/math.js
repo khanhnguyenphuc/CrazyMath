@@ -179,7 +179,23 @@ var submitScore = function() {
         googleplaygame.submitScore(data);
     }, failedToLogin);
 };
+function sharePhoto() {
+     var imageLink;
+            console.log('Calling from CapturePhoto');
+            navigator.screenshot.save(function(error,res){
+            if(error){
+            console.error(error);
+            }else{
+            console.log('ok',res.filePath); //should be path/to/myScreenshot.jpg
+            //For android
+            imageLink = res.filePath;
+           window.plugins.socialsharing.share('Message, subject, image and link', 'The subject','file://'+imageLink, 'http://www.x-services.nl');
 
+           //For iOS
+           //window.plugins.socialsharing.share(null,   null,imageLink, null)
+     }
+     },'jpg',50,'myScreenShot');
+}
 $(function () {
 	
 	$('.start-game').click(function(e) {
