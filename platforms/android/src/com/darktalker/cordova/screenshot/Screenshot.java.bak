@@ -30,7 +30,6 @@ import android.util.Base64;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 
 
 public class Screenshot extends CordovaPlugin {
@@ -59,30 +58,28 @@ public class Screenshot extends CordovaPlugin {
 	
 	private Bitmap getBitmap() {
 		Bitmap bitmap = null;
-		// WebView webview = new WebView(this);
- 	// 	setContentView(webview);
-		boolean isCrosswalk = false;
-		// try {
-		// 	Class.forName("org.crosswalk.engine.XWalkWebViewEngine");
-		// 	isCrosswalk = true;
-		// } catch (Exception e) {
-		// }
 		
-		// if(isCrosswalk) {
-		// 	try {
-				
-		// 		TextureView textureView = findXWalkTextureView((ViewGroup)WebView.getView());
-		// 		bitmap = textureView.getBitmap();
+		boolean isCrosswalk = false;
+		try {
+			Class.forName("org.crosswalk.engine.XWalkWebViewEngine");
+			isCrosswalk = true;
+		} catch (Exception e) {
+		}
+		
+		if(isCrosswalk) {
+			try {
+				TextureView textureView = findXWalkTextureView((ViewGroup)webView.getView());
+				bitmap = textureView.getBitmap();
 
-		// 	} catch(Exception e) {
-		// 	}
-		// } else 
+			} catch(Exception e) {
+			}
+		} else 
 		{
-
-			View view = cordova.getActivity().getWindow().findViewById(cordova.getActivity().getWindow().ID_ANDROID_CONTENT);
-			// View view = cordova.getActivity().getWindow().getDecorView();
+			View view = cordova.getActivity().getWindow().getDecorView().getRootView();
 			view.setDrawingCacheEnabled(true);
 			bitmap = Bitmap.createBitmap(view.getDrawingCache());
+			// int contentViewTop = cordova.getActivity().getWindow().getDecorView().getTop();
+  	// 		Storage.shareBitmapInfo = Bitmap.createBitmap(bitmap, 0, contentViewTop, bitmap.getWidth(), bitmap.getHeight() - contentViewTop, null, true);
 			view.setDrawingCacheEnabled(false);
 
 		}
