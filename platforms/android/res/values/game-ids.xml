@@ -5,6 +5,10 @@ Save this file as res/values/games-ids.xml in your project.
 -->
 <resources>
   <string name="app_id">8510648668</string>
-  <string name="achievement_test">CggI3OKY2h8QAhAB</string>
-  <string name="leaderboard_test111">CggI3OKY2h8QAhAC</string>
+  <string name="achievement_newbie">CggI3OKY2h8QAhAB</string>
+  <string name="achievement_amateur">CggI3OKY2h8QAhAD</string>
+  <string name="achievement_professional">CggI3OKY2h8QAhAE</string>
+  <string name="achievement_gold">CggI3OKY2h8QAhAF</string>
+  <string name="achievement_diamond">CggI3OKY2h8QAhAG</string>
+  <string name="leaderboard_high_score">CggI3OKY2h8QAhAC</string>
 </resources>
